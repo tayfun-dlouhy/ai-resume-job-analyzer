@@ -2,7 +2,7 @@
 
 AI-powered resume and job matching application built with **Python**, **Streamlit**, **SQLite**, **Plotly** and optional **OpenAI integration**.
 
-🔗 **Live Demo:** Coming soon
+🔗 **Live Demo:** 🔗 **Live Demo:** https://tayfun-ai-resume-analyzer.streamlit.app
 
 ![Application Screenshot](assets/app-screenshot.png)
 
