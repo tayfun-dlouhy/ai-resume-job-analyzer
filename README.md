@@ -1,250 +1,105 @@
 # 🤖 AI Resume & Job Analyzer
 
-![Application](assets/app-screenshot.png)
+AI-powered resume and job matching application built with **Python**, **Streamlit**, **SQLite**, **Plotly** and optional **OpenAI integration**.
 
-An AI-powered Resume & Job Analyzer built with **Python**, **Streamlit** and **OpenAI**.
+🔗 **Live Demo:** Coming soon
 
-The application compares a resume with a job description, calculates an ATS-style compatibility score, identifies missing skills, generates improvement suggestions and creates a personalized cover letter draft.
+![Application Screenshot](assets/app-screenshot.png)
 
----
+## ✨ Features
 
-# 🚀 Live Demo
+- Upload a resume PDF
+- Upload or paste a job description
+- Extract text from PDF files
+- Calculate an ATS-style match score
+- Visualize the score with an interactive Plotly gauge
+- Detect matched skills
+- Detect missing skills
+- Generate resume improvement suggestions
+- Generate a cover letter draft
+- Store analyses locally with SQLite
+- Export report as Markdown
+- Export report as PDF
+- Docker support
+- Automated tests with GitHub Actions
+- Ready for Streamlit Cloud deployment
 
-https://DEINE-STREAMLIT-URL.streamlit.app
+## 🛠️ Tech Stack
 
----
-
-# ✨ Features
-
-- 📄 Upload resume as PDF
-- 💼 Upload or paste a job description
-- 🤖 AI-powered resume analysis
-- 📊 ATS-style compatibility score
-- ✅ Matching skills detection
-- ⚠️ Missing skills analysis
-- 🧠 Resume improvement suggestions
-- ✉️ Automatic cover letter generation
-- 📥 Export analysis as Markdown
-- 🌙 Modern dark mode interface
-
----
-
-# 🖼️ Application Preview
-
-![Screenshot](assets/app-screenshot.png)
-
----
-
-# 🛠️ Tech Stack
-
-## Backend
-
-- Python 3.11
+- Python
 - Streamlit
-- OpenAI API
-- SQLite
 - PyPDF2
-
-## AI
-
-- GPT-4o-mini
-- Natural Language Processing
-- Resume Analysis
-- Keyword Matching
-
-## Development
-
-- Git
-- GitHub
+- SQLite
+- Plotly
+- ReportLab
+- OpenAI API
+- Pytest
 - Docker
 - GitHub Actions
-- Streamlit Cloud
 
----
+## 📂 Project Structure
 
-# 📂 Project Structure
-
-```
-ai-resume-job-analyzer
-│
-├── assets/
-│   └── app-screenshot.png
-│
-├── src/
-│   ├── answer_service.py
-│   ├── config.py
-│   ├── openai_engine.py
-│   ├── local_answer_engine.py
-│   ├── semantic_retriever.py
-│   ├── ui_components.py
-│   └── ...
-│
-├── tests/
-│
-├── app.py
-├── requirements.txt
-├── runtime.txt
-├── Dockerfile
-└── README.md
+```text
+src/
+├── database.py
+├── exporter.py
+├── openai_service.py
+├── pdf_export.py
+├── pdf_reader.py
+├── scoring.py
+├── skills.py
+└── text_processing.py
 ```
 
----
-
-# ⚙️ Installation
-
-Clone the repository
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/tayfun-dlouhy/ai-resume-job-analyzer.git
-```
-
-Open the project
-
-```bash
 cd ai-resume-job-analyzer
-```
-
-Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate it
-
-macOS / Linux
-
-```bash
+python3 -m venv venv
 source venv/bin/activate
-```
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies
-
-```bash
 pip install -r requirements.txt
+python -m streamlit run app.py
 ```
 
-Start the application
+## 💻 Usage
 
-```bash
-streamlit run app.py
-```
-
----
-
-# 💻 Usage
-
-1. Upload your resume as PDF.
+1. Upload a resume as PDF.
 2. Upload or paste a job description.
 3. Click **Analyze Match**.
-4. Review:
-   - ATS Score
-   - Matching Skills
-   - Missing Skills
-   - Resume Suggestions
-   - Cover Letter Draft
-5. Export the report as Markdown.
+4. Review ATS score, matched skills, missing skills and suggestions.
+5. Export the result as Markdown or PDF.
 
----
+## 🎯 Skills Demonstrated
 
-# 📈 Example Analysis
+- Python application development
+- PDF text extraction
+- NLP-style keyword matching
+- ATS-style scoring
+- Data persistence with SQLite
+- Data visualization with Plotly
+- PDF report generation
+- Streamlit UI development
+- Docker basics
+- GitHub Actions basics
+- Cloud deployment preparation
 
-The application evaluates:
+## 🔮 Future Improvements
 
-- ATS compatibility
-- Technical skills
-- Missing technologies
-- Resume quality
-- Personalized recommendations
-- Cover letter generation
+- Add real vector embeddings
+- Add user authentication
+- Add persistent cloud database
+- Add recruiter dashboard
+- Add multiple resume comparison
+- Improve cover letter generation with job-specific prompts
+- Add PDF resume optimization export
 
----
-
-# 🧪 Testing
-
-Run all tests
-
-```bash
-pytest
-```
-
----
-
-# 📦 Deployment
-
-The application is deployed using **Streamlit Community Cloud**.
-
-To deploy:
-
-1. Push the repository to GitHub.
-2. Connect the repository to Streamlit Cloud.
-3. Select:
-
-```
-Main file:
-app.py
-```
-
-Python Version
-
-```
-3.11
-```
-
-Deploy.
-
----
-
-# 🔮 Future Improvements
-
-- Semantic vector embeddings
-- Multi-language support
-- Multiple resume comparison
-- Recruiter dashboard
-- Resume scoring history
-- OpenAI function calling
-- Company-specific ATS optimization
-- PDF report export
-- User authentication
-- PostgreSQL database
-
----
-
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Tayfun Dlouhy**
 
-GitHub
+GitHub: https://github.com/tayfun-dlouhy
 
-https://github.com/tayfun-dlouhy
-
----
-
-# ⭐ Why this project?
-
-This project demonstrates practical skills in
-
-- Python
-- AI Integration
-- Prompt Engineering
-- PDF Processing
-- Streamlit
-- REST-ready Architecture
-- SQL
-- Software Architecture
-- Git & GitHub
-- Modern UI Design
-
-It was built as part of a portfolio showcasing AI-powered software engineering projects.
-
----
-
-# 📄 License
+## 📄 License
 
 MIT License
