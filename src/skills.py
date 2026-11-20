@@ -1,19 +1,23 @@
+import re
+
 COMMON_SKILLS = [
     "python", "java", "c", "sql", "git", "github", "docker", "linux",
     "streamlit", "flask", "fastapi", "rest", "api", "pandas", "numpy",
     "matplotlib", "power bi", "excel", "sharepoint", "power automate",
     "machine learning", "ki", "ai", "openai", "llm", "nlp",
     "softwareentwicklung", "datenanalyse", "automatisierung",
-    "digitalisierung", "cloud", "azure", "aws", "testing", "pytest"
+    "javascript", "json", "webhook", "c++", "c#", "digitalisierung", "cloud", "azure", "aws", "testing", "pytest"
 ]
 
 def extract_skills(text: str) -> set[str]:
-    lower = text.lower()
+    aliases = {"api": r"apis?", "webhook": r"webhooks?", "llm": r"llms?"}
     found = set()
     for skill in COMMON_SKILLS:
-        if skill in lower:
+        pattern = aliases.get(skill, re.escape(skill))
+        if re.search(r"(?<!\w)" + pattern + r"(?![\w+#])", text, re.IGNORECASE):
             found.add(skill)
     return found
+
 
 def compare_skills(resume_text: str, job_text: str) -> dict:
     resume_skills = extract_skills(resume_text)

@@ -9,11 +9,10 @@ def has_openai_key() -> bool:
 
 def generate_ai_feedback(resume_text: str, job_text: str, score_data: dict) -> str:
     if not has_openai_key():
-        missing = ", ".join(score_data.get("missing_skills", [])[:8]) or "no major missing skills detected"
-        return (
-            "Local feedback: Improve the resume by adding more job-specific keywords, "
-            f"especially: {missing}. Make projects more measurable and align bullet points with the job description."
-        )
+        missing = ", ".join(score_data.get("missing_skills", [])[:8])
+        if missing:
+            return f"Local feedback: Review these job skills not found in your resume: {missing}. Add examples only where accurate."
+        return "Local feedback: No additional skills from the recognized list. Review the full job requirements for context."
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = f"""

@@ -6,7 +6,7 @@ def ats_score(resume_text: str, job_text: str) -> dict:
     job_words = keyword_frequency(job_text)
 
     if not job_words:
-        return {"score": 0, "matched_keywords": [], "missing_keywords": []}
+        return {"score": 0, "matched_keywords": [], "missing_keywords": [], **compare_skills(resume_text, job_text)}
 
     important_keywords = [word for word, _ in job_words.most_common(40)]
     matched = [word for word in important_keywords if word in resume_words]
