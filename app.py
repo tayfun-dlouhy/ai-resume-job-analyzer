@@ -38,7 +38,7 @@ st.markdown(
     """
 <div class="hero">
 <h1>🤖 AI Resume & Job Analyzer</h1>
-<p>Analyze a resume against a job description, calculate an ATS-style score and generate improvement suggestions.</p>
+<p>Analyze a resume against a job description, calculate an keyword overlap and generate improvement suggestions.</p>
 </div>
 """,
     unsafe_allow_html=True,
@@ -78,15 +78,17 @@ if st.button("Analyze Match", type="primary"):
     st.subheader("📊 Results")
 
     col1, col2, col3 = st.columns(3)
-    col1.metric("ATS Score", f"{score_data['score']}%")
+    col1.metric("Keyword Overlap", f"{score_data['score']}%")
     col2.metric("Matched Skills", len(score_data["matched_skills"]))
-    col3.metric("Missing Skills", len(score_data["missing_skills"]))
+    col3.metric("Skills not found in resume", len(score_data["missing_skills"]))
+
+    st.caption("Share of the up to 40 most frequent job-posting terms found in the resume after tokenization and stopword filtering.")
 
     fig = go.Figure(
         go.Indicator(
             mode="gauge+number",
             value=score_data["score"],
-            title={"text": "ATS Match Score"},
+            title={"text": "Keyword Overlap"},
             gauge={
                 "axis": {"range": [0, 100]},
                 "bar": {"color": "#2ecc71"},
@@ -104,8 +106,8 @@ if st.button("Analyze Match", type="primary"):
     st.markdown("### ✅ Matched Skills")
     st.write(", ".join(score_data["matched_skills"]) or "No matching skills detected.")
 
-    st.markdown("### ⚠️ Missing Skills")
-    st.write(", ".join(score_data["missing_skills"]) or "No missing skills detected.")
+    st.markdown("### ⚠️ Skills not found in resume")
+    st.write(", ".join(score_data["missing_skills"]) or "No additional skills from the recognized list.")
 
     st.markdown("### 🧠 Improvement Suggestions")
     st.write(feedback)
